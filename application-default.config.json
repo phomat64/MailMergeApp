@@ -1,0 +1,82 @@
+{
+    "business" : {
+        "search_key_map": {
+            "Search Key 1": {
+                "column": "<table-column>",
+                "compareOperator": "="
+            },
+            "Search Key 2": {
+                "column": "<table-column>",
+                "compareOperator": "="
+            },
+            "Search Key 3": {
+                "column": "<table-column>",
+                "compareOperator": "like"
+            }
+        },
+        "search_table_column_mapping": {
+            "<search-table-col-name": "<table-column>",
+            "<search-table-col-name": "<table-column>",
+            "<search-table-col-name": "<table-column>",
+            "<search-table-col-name": "<table-column>",
+            "<search-table-col-name": "<table-column>"
+        }
+    },
+    "database": {
+        "connectionString": "",
+        "sqlQuery": "<your-sql-query>",
+        "namedQueries" : {
+            "GetUserInfo": {
+                "query": "select * from dbo.User"
+            },
+            "named_query2": {
+                "query": "<your-sql-query>"
+            },
+            "named_query3": {
+                "query": "<your-sql-query>"
+            }
+        }
+    },
+    "fieldMappings": [
+        {
+            "field": "<field-name>",
+            "value": "db{<table-column>}",
+            "namedQuery": "<named-query-reference>"
+        },
+        {
+            "field": "FIRST_NAME",
+            "value": "db{first_name}",
+            "namedQuery": "GetUserInfo"
+        },
+        {
+            "field": "BIRTH_DATE",
+            "value": "db{birth_date} || date: \"yyyymmdd\" \"mmmm dd, yyyy\"",
+            "namedQuery": null
+        },
+        {
+            "field": "NOWADD15",
+            "value": "date{current.add(15)}"
+        },
+        {
+            "field": "NOWADD20",
+            "value": "date{current.add(20)}"
+        },
+        {
+            "field": "NOWADD30",
+            "value": "date{current.add(30) | mmmm dd, yyyy}"
+        },
+        {
+            "field": "NOWADD60",
+            "value": "date{current.add(60)}"
+        },
+        {
+            "field": "NOWADD183",
+            "value": "date{current.add(183) | mm-dd-yyyy}"
+        },
+        {
+            "field": "NOWADD365",
+            "value": "date{current.add(365) | mmm/ddd/yy}"
+        }
+    ],
+    "rootPath": "<root-path-to-your-document-templates>"
+}
